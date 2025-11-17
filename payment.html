@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Payment — Canteen Express</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/foods.js"></script>
+  <script src="assets/script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="logo">🍔 Canteen Express</div>
+      <nav class="nav-links"><a href="menu.html">Menu</a><a href="cart.html">Cart</a></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Payment</h1>
+
+    <div class="card" style="max-width:700px;margin:20px auto;text-align:center">
+      <p style="margin-bottom:8px">Choose a payment method to complete your order</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:12px;flex-wrap:wrap">
+        <button class="btn" onclick="simulatePayment('UPI')">Pay with UPI</button>
+        <button class="btn" onclick="simulatePayment('Card')">Pay with Card</button>
+        <button class="btn" onclick="simulatePayment('Cash')">Cash on Delivery</button>
+      </div>
+      <p style="margin-top:12px;opacity:.9">Total: ₹<span id="final-total">${getCartTotal()}</span></p>
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 Canteen Express</footer>
+</body>
+</html>

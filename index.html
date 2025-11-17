@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Canteen Express — Home</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/foods.js"></script>
+  <script src="assets/script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div class="logo">🍔 Canteen Express</div>
+        <div class="badge">Fresh • Hot • Tasty</div>
+      </div>
+      <nav class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="cart.html">Cart <span class="cart-badge" style="margin-left:8px">0</span></a>
+        <a href="report.html">Report</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Eat. Order. Enjoy.</h1>
+        <p>Delicious meals delivered hot, made with love. Explore our curated menu and order in seconds.</p>
+        <div style="margin-top:18px">
+          <a class="btn" href="menu.html">Explore Menu</a>
+        </div>
+      </div>
+      <div class="hero-right">
+ <img src="assets/images/home.jpg" 
+     alt="mascot" 
+     style="width:320px; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,0.4)">
+
+      </div>
+    </section>
+
+    <section style="margin-top:30px">
+      <h2 class="page-title">Popular picks</h2>
+      <div id="home-popular" class="grid cols-3"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 Canteen Express • Made with ❤️ • Dipsikha Das
+  </footer>
+
+  <script>
+    // inject top 6 foods in home popular
+    (function(){
+      const container = document.getElementById("home-popular");
+      if(!container) return;
+      FOODS.slice(0,6).forEach(f=>{
+        const d = document.createElement("div"); d.className = "card";
+        d.innerHTML = `<img class="food-img" src="${f.img}"><h3>${f.name}</h3><div style="font-weight:700">₹${f.price}</div><div style="margin-top:10px"><a class="btn" href="details.html?id=${f.id}">View</a> <button class="btn" onclick="addToCartById(${f.id})">Add</button></div>`;
+        container.appendChild(d);
+      });
+      updateCartBadge();
+    })();
+  </script>
+</body>
+</html>
